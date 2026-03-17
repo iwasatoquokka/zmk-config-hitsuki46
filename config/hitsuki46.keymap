@@ -86,6 +86,20 @@
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
         };
+
+        esc_and_mhen: esc_and_mhen {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESC &kp LANGUAGE_2>;
+            label = "ESC_AND_MHEN";
+        };
+
+        lessthan_minus: lessthan_minus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN &kp MINUS>;
+            label = "LEFT_ARROW";
+        };
     };
 
     behaviors {
