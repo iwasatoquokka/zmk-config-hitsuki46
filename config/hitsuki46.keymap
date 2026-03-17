@@ -3,6 +3,40 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
+#define BASE 0
+#define NAVI 1
+#define LOWER 2
+#define RAISE 3
+#define ADJUST 4
+#define DEBUG 5
+#define BT 6
+
+// OS設定を日本語キーボードのまま使用するための変換定義
+
+#define JP_DQUOTE       AT                // "
+#define JP_AMPERSAND    CARET             // &
+#define JP_QUOTE        AMPERSAND          // '
+#define JP_EQUAL        UNDER              // =
+#define JP_CARET        EQUAL              // ^
+#define JP_YEN          0x89               // ¥
+#define JP_PLUS         COLON              // +
+#define JP_TILDE        PLUS               // ~
+#define JP_PIPE         LS(0x89)           // |
+#define JP_AT           LEFT_BRACKET      // @
+#define JP_COLON        SINGLE_QUOTE      // :
+#define JP_ASTERISK     DOUBLE_QUOTES     // *
+#define JP_BACKQUOTE    LEFT_BRACE        // `
+#define JP_UNDERSCORE   LS(0x87)          // _
+#define JP_LBRACKET     RIGHT_BRACKET     // [
+#define JP_RBRACKET     BACKSLASH         // ]
+#define JP_LPAREN       ASTERISK          // (
+#define JP_RPAREN       LEFT_PARENTHESIS  // )
+#define JP_LBRACE       RIGHT_BRACE        // {
+#define JP_RBRACE       PIPE              // }
+#define JP_KANA         LANGUAGE_1        // かな
+#define JP_EISU         LANGUAGE_2        // 英数
+#define JP_HANZEN       GRAVE             // 半角/全角S
+
 &mt {
     flavor = "balanced";
     quick-tap-ms = <0>;
@@ -68,16 +102,16 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default {
+        BASE {
             bindings = <
-&kp ESCAPE      &kp Q         &kp W         &kp E         &kp R        &kp T             &kp Y             &kp U        &kp I                 &kp O          &kp P        &kp BACKSPACE
-&mt LCTRL TAB   &kp A         &kp S         &kp D         &kp F        &kp G             &kp H             &kp J        &kp K                 &kp L          &lt 5 MINUS  &kp EQUAL
-&kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V        &kp B             &kp N             &kp M        &kp COMMA             &kp PERIOD     &kp SLASH    &kp RSHFT
-                &kp LEFT_WIN  &kp LEFT_ALT  &lt 6 DELETE  &lt 3 SPACE  &lt 2 LANGUAGE_2  &lt 3 LANGUAGE_1  &lt 2 ENTER  &mt RSHIFT BACKSPACE  &kp SEMICOLON  &kp SQT
+&kp ESCAPE      &mt LEFT_ALT COMMA  &mt LCTRL PERIOD  &mt LEFT_SHIFT MINUS      &kp F            &kp Q      &kp Y     &kp G            &kp D             &kp M  &kp P      &esc_and_mhen
+&mt LCTRL TAB   &kp A               &kp O             &kp E                     &kp I            &kp U      &kp B     &kp N            &kp T             &kp R  &kp S      &kp LEFT_SHIFT
+&kp LEFT_SHIFT  &kp Z               &kp X             &kp C                     &kp V            &kp W      &kp H     &kp J            &kp K             &kp L  &kp SLASH  &kp LCTRL
+                &none               &none             &mt LEFT_SHIFT BACKSPACE  &lt LOWER ENTER  &mkp MB1   &mkp MB2  &lt RAISE SPACE  &mt LCTRL DELETE  &mo 6  &none
             >;
         };
 
-        MOUSE {
+        NAVI {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans              &trans               &trans    &trans    &trans       &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans              &mkp MB1             &mkp MB3  &mkp MB2  &lt 5 MINUS  &trans
@@ -86,34 +120,34 @@
             >;
         };
 
-        FUNCTION {
+        LOWER {
             bindings = <
-&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT  &kp CARET       &kp AMPERSAND   &kp ASTERISK     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
-&trans  &kp F1           &kp F2       &kp F3    &kp F4      &kp F5       &trans          &kp UP          &trans           &trans                &trans                 &trans
-&trans  &kp F6           &kp F7       &kp F8    &kp F9      &kp F10      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans                &trans                 &trans
-        &kp F11          &kp F12      &trans    &trans      &trans       &trans          &trans          &trans           &trans                &trans
+&none  &kp LS(NUMBER_1)  &kp LS(SLASH)      &kp RIGHT_BRACKET   &kp BSLH              &kp PLUS                &kp EQUAL    &kp JP_UNDERSCORE  &kp JP_YEN     &kp RIGHT_BRACE  &kp PIPE        &none
+&none  &kp HASH          &kp DOUBLE_QUOTES  &kp ASTERISK        &kp LEFT_PARENTHESIS  &kp LEFT_BRACKET        &kp COLON    &kp DOLLAR         &kp AT_SIGN    &kp AMPERSAND    &kp LEFT_BRACE  &none
+&none  &kp LC(C)         &kp LC(V)          &kp SEMICOLON       &kp SINGLE_QUOTE      &kp JP_PIPE             &kp COMMA    &kp PERIOD         &kp CARET      &kp PERCENT      &esc_and_mhen   &none
+       &trans            &trans             &kp LA(LC(DELETE))  &none                 &none                   &kp LS(TAB)  &mo 4              &kp TAB        &none            &none           
             >;
         };
 
-        NUM {
+        RAISE {
             bindings = <
-&trans  &kp N1            &kp N2             &kp N3          &kp N4           &kp N5         &kp N6  &kp N7        &kp N8        &kp N9        &kp N0      &trans
-&trans  &trans            &trans             &trans          &trans           &kp BACKSLASH  &trans  &kp N4        &kp N5        &kp N6        &kp MINUS   &kp SLASH
-&trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp PIPE       &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PLUS    &kp ASTERISK
-        &trans            &trans             &trans          &trans           &trans         &trans  &kp NUMBER_0  &trans        &trans        &kp PERIOD
+&none           &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3              &kp NUMBER_4  &kp N5                    &none           &kp LC(LEFT)    &kp UP_ARROW   &kp LC(RIGHT)  &kp HOME  &none
+&kp LCTRL       &kp NUMBER_6  &kp N7        &kp N8                    &kp N9        &kp N0                    &none           &kp LEFT        &kp DOWN       &kp RIGHT      &kp END   &none
+&kp LEFT_SHIFT  &none         &none         &kp LEFT_GUI              &none         &kp PERIOD                &kp LANGUAGE_2  &kp LANGUAGE_1  &kp LS(LG(S))  &none          &none     &none
+                &none         &none         &mt LEFT_SHIFT BACKSPACE  &mo 4         &none                     &none           &none           &none          &trans         &trans
             >;
         };
 
-        ARROW {
+        ADJUST {
             bindings = <
-&trans  &trans  &trans    &kp UP    &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans    &trans    &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans    &trans    &trans     &trans  &trans  &trans  &trans  &trans  &trans
+&none  &kp F1     &kp F2  &lessthan_minus  &none            &none                         &none           &none           &kp LC(N8)        &kp LC(N5)       &kp F20  &none
+&none  &trans     &trans  &kp LC(SLASH)    &kp LS(LC(DOT))  &kp LS(LA(J))                 &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP      &msc SCRL_RIGHT  &kp F21  &none
+&none  &kp LC(Z)  &trans  &kp LS(LC(C))    &trans           &trans                        &trans          &kp LS(LC(M))   &kp LS(LA(DOWN))  &kp F17          &kp F23  &none
+       &trans     &trans  &trans           &trans           &trans                        &trans          &trans          &trans            &trans           &trans
             >;
         };
 
-        SCROLL {
+        DEBAG {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -122,7 +156,7 @@
             >;
         };
 
-        Bluetooth {
+        BT {
             bindings = <
 &trans  &trans        &trans        &trans        &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans
 &trans  &trans        &trans        &trans        &trans  &trans  &trans        &trans        &trans        &trans        &trans          &trans
