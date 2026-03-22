@@ -118,7 +118,7 @@
 
         BASE {
             bindings = <
-&kp ESCAPE      &mt LEFT_ALT COMMA  &mt LCTRL PERIOD  &mt LEFT_SHIFT MINUS      &kp F            &kp Q      &kp Y             &kp G            &kp D       &kp M  &kp P      &esc_and_mhen
+&mkp MB2        &mt LEFT_ALT COMMA  &mt LCTRL PERIOD  &mt LEFT_SHIFT MINUS      &kp F            &kp Q      &kp Y             &kp G            &kp D       &kp M  &kp P      &esc_and_mhen
 &mt LCTRL TAB   &kp A               &kp O             &kp E                     &kp I            &kp U      &kp B             &kp N            &kp T       &kp R  &kp S      &kp LEFT_SHIFT
 &kp LEFT_SHIFT  &kp Z               &kp X             &kp C                     &kp V            &kp W      &kp H             &kp J            &kp K       &kp L  &kp SLASH  &kp LCTRL
                 &mo 6               &mo 5             &mt LEFT_SHIFT BACKSPACE  &lt LOWER ENTER  &mkp MB1   &mt LCTRL DELETE  &lt RAISE SPACE  &none       &none  &mo 6
