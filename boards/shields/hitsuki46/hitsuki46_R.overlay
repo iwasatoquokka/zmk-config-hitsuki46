@@ -66,7 +66,7 @@
 
         // Optional: Enable scroll on layer 5
         scroller {
-            layers = <5>;
+            layers = <2>;
             input-processors =
                 <&xy_clipper>,
                 <&zip_xy_to_scroll_mapper>,
@@ -90,11 +90,11 @@
         <&zip_scroll_scaler 2 5>;
 #else
     // CURSOR MODE: Normal cursor with auto mouse layer
-    input-processors = <&zip_temp_layer 1 700>;
+    //input-processors = <&zip_temp_layer 1 700>;
 
     // Enable scroll on layer 5
     scroller {
-        layers = <5>;
+        layers = <2>;
         input-processors =
             <&xy_clipper>,
             <&zip_xy_to_scroll_mapper>,
