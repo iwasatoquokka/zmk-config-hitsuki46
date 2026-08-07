@@ -118,28 +118,28 @@
 
         BASE {
             bindings = <
-&mkp MB2        &mt LEFT_ALT COMMA  &mt LCTRL PERIOD  &mt LEFT_SHIFT MINUS      &kp F            &kp Q      &kp Y             &kp G            &kp D       &kp M  &kp P      &esc_and_mhen
-&mt LCTRL TAB   &kp A               &kp O             &kp E                     &kp I            &kp U      &kp B             &kp N            &kp T       &kp R  &kp S      &kp LEFT_SHIFT
-&kp LEFT_SHIFT  &kp Z               &kp X             &kp C                     &kp V            &kp W      &kp H             &kp J            &kp K       &kp L  &kp SLASH  &kp LCTRL
-                &mo 6               &mo 5             &mt LEFT_SHIFT BACKSPACE  &lt LOWER ENTER  &mkp MB1   &mt LCTRL DELETE  &lt RAISE SPACE  &none       &none  &mo 6
+&mkp MB2        &mt LEFT_ALT COMMA  &mt LCTRL PERIOD  &mt LEFT_SHIFT MINUS      &kp F            &kp Q           &kp Y             &kp G            &lt LOWER D       &kp M  &kp P      &esc_and_mhen
+&mt LCTRL TAB   &kp A               &kp O             &kp E                     &kp I            &kp U           &kp B             &kp N            &kp T             &kp R  &kp S      &kp LEFT_SHIFT
+&kp LEFT_SHIFT  &kp Z               &kp X             &kp C                     &kp V            &kp W           &kp H             &kp J            &kp K             &kp L  &kp SLASH  &kp LCTRL
+                &mo 6               &mo 5             &mt LEFT_SHIFT BACKSPACE  &lt LOWER ENTER  &mkp MB1        &mt LCTRL DELETE  &lt RAISE SPACE  &none             &none  &mo 6
             >;
         };
 
         NAVI {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans              &trans               &trans    &trans    &trans       &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans              &mkp MB1             &mkp MB3  &mkp MB2  &lt 5 MINUS  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &kp LA(LEFT_ARROW)  &kp LA(RIGHT_ARROW)  &trans    &trans    &trans       &trans
-        &trans  &trans  &trans  &trans  &trans  &mkp MB1            &mkp MB2             &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans                      &trans              &trans               &trans    &trans    &trans       &mkp MB1
+&trans  &trans  &trans  &trans  &trans  &trans                      &trans              &mkp MB1             &mkp MB3  &mkp MB2  &lt 5 MINUS  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                      &kp LA(LEFT_ARROW)  &kp LA(RIGHT_ARROW)  &trans    &trans    &trans       &trans
+        &trans  &trans  &trans  &trans  &trans                      &mkp MB1            &mkp MB2             &trans    &trans    &trans
             >;
         };
 
         LOWER {
             bindings = <
-&none  &kp LS(NUMBER_1)  &kp LS(SLASH)      &kp RIGHT_BRACKET   &kp BSLH              &kp PLUS                &kp EQUAL    &kp JP_UNDERSCORE  &kp JP_YEN     &kp RIGHT_BRACE  &kp PIPE        &none
-&none  &kp HASH          &kp DOUBLE_QUOTES  &kp ASTERISK        &kp LEFT_PARENTHESIS  &kp LEFT_BRACKET        &kp COLON    &kp DOLLAR         &kp AT_SIGN    &kp AMPERSAND    &kp LEFT_BRACE  &none
-&none  &kp LC(C)         &kp LC(V)          &kp SEMICOLON       &kp SINGLE_QUOTE      &kp JP_PIPE             &kp COMMA    &kp PERIOD         &kp CARET      &kp PERCENT      &esc_and_mhen   &none
-       &trans            &trans             &kp LA(LC(DELETE))  &none                 &none                   &kp LS(TAB)  &mo 4              &kp TAB        &none            &none           
+&none  &kp LS(NUMBER_1)  &kp LS(SLASH)      &kp RIGHT_BRACKET   &kp BSLH              &kp PLUS                                    &kp EQUAL    &kp JP_UNDERSCORE  &kp JP_YEN     &kp RIGHT_BRACE  &kp PIPE        &none
+&none  &kp HASH          &kp DOUBLE_QUOTES  &kp ASTERISK        &kp LEFT_PARENTHESIS  &kp LEFT_BRACKET                            &kp COLON    &kp DOLLAR         &kp AT_SIGN    &kp AMPERSAND    &kp LEFT_BRACE  &none
+&none  &kp LC(C)         &kp LC(V)          &kp SEMICOLON       &kp SINGLE_QUOTE      &kp JP_PIPE                                 &kp COMMA    &kp PERIOD         &kp CARET      &kp PERCENT      &esc_and_mhen   &none
+       &trans            &trans             &kp LA(LC(DELETE))  &none                 &none                                       &kp LS(TAB)  &mo 4              &kp TAB        &none            &none           
             >;
         };
 
